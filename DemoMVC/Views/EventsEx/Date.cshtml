@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DemoMVC.Models.EMPDATA>
+@{
+    ViewBag.Title = "Date";
+}
+
+<h2>Date</h2>
+@using (Html.BeginForm("Display", "EventsEx"))
+{
+    <table>
+        <tr><td>@Html.RadioButton("date","")</td>
+        <td>StartDate</td><td>@Html.TextBox("txtStartdate")</td>
+        <td>EndDate</td><td>@Html.TextBox("txtEnddate")</td></tr>
+        <tr><td>@Html.RadioButton("date","")</td>
+            <td> @Html.DropDownList("ddlDeptno",new SelectList("Deptno"),"select")</td></tr>
+        <tr><td><input type="submit" /></td></tr>
+    </table>
+    if (Model != null)
+    {
+        <table>
+            <tr><td>EMPNO</td>
+            <td>ENAME</td>
+            <td>JOB</td>
+            <td>MGR</td>
+            <td>HIREDATE</td>
+            <td>SAL</td>
+            <td>COMM</td>
+            <td>DEPTNO</td>
+            </tr>
+            @foreach(var E1 in Model)
+            {
+        <tr>
+            <td>@E1.EMPNO</td>
+            <td>@E1.ENAME</td>
+            <td>@E1.JOB</td>
+            <td>@E1.MGR</td>
+            <td>@E1.HIREDATE</td>
+            <td>@E1.SAL</td>
+            <td>@E1.COMM</td>
+            <td>@E1.DEPTNO</td>
+        </tr>
+                
+            }
+        </table>
+    }
+}

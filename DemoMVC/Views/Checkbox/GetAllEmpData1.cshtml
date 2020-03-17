@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DemoMVC.Models.EMPDATA>
+@{
+    ViewBag.Title = "GetAllEmpData";
+}
+
+<h2>GetAllEmpData</h2>
+@using (Html.BeginForm())
+{
+    if (Model!= null)
+    {
+        <table border="1">
+            <tr>
+               
+                <td>Empno</td>
+                <td>Ename</td>
+                <td>Job</td>
+                <td>MGR</td>
+                <td>Hiredate</td>
+                <td>salary</td>
+                <td>COMM</td>
+                <td>Deptno</td>
+            </tr>
+
+            @foreach (var v in Model)
+            {
+                <tr>
+                    <td>@v.EMPNO</td>
+                    <td>@v.ENAME</td>
+                    <td>@v.JOB</td>
+                    <td>@v.MGR</td>
+                    <td>@v.HIREDATE</td>
+                    <td>@v.SAL</td>
+                    <td>@v.COMM</td>
+                    <td>@v.DEPTNO</td>
+                </tr>
+            }
+
+
+        </table>
+
+        
+    }
+}
+
+
+
